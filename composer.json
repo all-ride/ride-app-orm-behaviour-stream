@@ -1,0 +1,26 @@
+{
+    "name": "ride/app-orm-behaviour-stream",
+    "description": "Stream behaviour for Ride ORM.",
+    "version": "0.1.0",
+    "authors": [
+        {
+            "name": "Kristof Serré",
+            "email": "kristof@statik.be"
+        },
+        {
+            "name": "Joris Vandeweerd",
+            "email": "joris@statik.be"
+        }
+    ],
+    "require": {
+        "ride/app-orm": ">=0.3.1",
+        "ride/app-orm-asset": ">=0.1.0",
+        "ride/lib-cms": ">=0.15.0",
+        "ride/lib-orm": ">=0.5.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "ride\\application\\orm\\": ["src/"]
+        }
+    }
+}
