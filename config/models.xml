@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models>
+    <model name="StreamActivity">
+        <field name="title" type="string" localized="true">
+            <option name="label.name" value="label.title"/>
+            <validation name="required"/>
+        </field>
+        <field name="teaser" type="string" localized="true">
+            <option name="label.name" value="label.teaser"/>
+        </field>
+        <field name="url" type="string" localized="true">
+            <option name="label.name" value="label.url"/>
+            <validation name="required"/>
+        </field>
+        <field name="image" model="Asset" relation="belongsTo">
+            <option name="label.name" value="label.image"/>
+            <option name="scaffold.form.type" value="assets"/>
+        </field>
+
+        <format name="title">{title}</format>
+        <format name="teaser">{teaser}</format>
+        <format name="image">{image.thumbnail}</format>
+
+        <option name="behaviour.date" value="true"/>
+        <option name="order.field" value="dateAdded"/>
+        <option name="order.direction" value="DESC"/>
+        <option name="scaffold.expose" value="true"/>
+        <option name="scaffold.title" value="title.stream.activity"/>
+    </model>
+</models>
