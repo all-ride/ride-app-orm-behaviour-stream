@@ -55,11 +55,6 @@ class ActivityStreamBehaviour extends AbstractBehaviour {
     protected function getStreamActivityOnEntry(Model $model, StreamedActivityEntry $entry) {
         $orm = $model->getOrmManager();
 
-        // check if the entry is a streamed activity
-        if (!$entry->isStreamedActivity()) {
-            return null;
-        }
-
         // resolve locale
         if ($model->getMeta()->isLocalized()) {
             $locale = $entry->getLocale();
@@ -73,9 +68,18 @@ class ActivityStreamBehaviour extends AbstractBehaviour {
         }
 
         $streamActivityModel = $orm->getStreamActivityModel();
+        $streamActivity = $entry->getStreamActivity();
+
+        // check if the entry is a streamed activity
+        if (!$entry->isStreamedActivity()) {
+            if ($streamActivity) {
+                $streamActivityModel->delete($streamActivity);
+            }
+
+            return null;
+        }
 
         // update activity stream
-        $streamActivity = $entry->getStreamActivity();
         if (!$streamActivity) {
             $streamActivity = $streamActivityModel->createEntry();
 
