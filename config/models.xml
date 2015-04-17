@@ -16,6 +16,9 @@
             <option name="label.name" value="label.image"/>
             <option name="scaffold.form.type" value="assets"/>
         </field>
+        <field name="type" type="string">
+            <option name="scaffold.form.type" value="hidden"/>
+        </field>
 
         <format name="title">{title}</format>
         <format name="teaser">{teaser}</format>

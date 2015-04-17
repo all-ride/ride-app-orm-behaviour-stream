@@ -57,7 +57,13 @@ class ActivityStreamBehaviourInitializer implements BehaviourInitializer {
         $isStreamedActivityMethod->setDescription('Checks whether this entry should be included in the stream');
         $isStreamedActivityMethod->setReturnValue($generator->createVariable('result', 'boolean'));
 
+        $streamActivityArgument = $generator->createVariable('streamActivity', 'ride\\application\\orm\\entry\\StreamActivityEntry');
+
+        $populateStreamActivityMethod = $generator->createMethod('populateStreamActivity', array($streamActivityArgument), '');
+        $populateStreamActivityMethod->setDescription('Populates the custom fields on a stream activity');
+
         $class->addMethod($isStreamedActivityMethod);
+        $class->addMethod($populateStreamActivityMethod);
     }
 
 }
