@@ -90,6 +90,7 @@ class ActivityStreamBehaviour extends AbstractBehaviour {
         $streamActivity->setUrl($url);
 
         $this->populateStreamActivity($model, $entry, $streamActivity);
+        $entry->populateStreamActivity($streamActivity);
 
         $streamActivityModel->save($streamActivity);
 
@@ -132,6 +133,8 @@ class ActivityStreamBehaviour extends AbstractBehaviour {
     protected function populateStreamActivity(Model $model, StreamedActivityEntry $entry, StreamActivityEntry $streamActivity) {
         $entryFormatter = $model->getOrmManager()->getEntryFormatter();
         $modelTable = $model->getMeta()->getModelTable();
+
+        $streamActivity->setType($modelTable->getName());
 
         // set the title
         if ($modelTable->hasFormat('stream.title')) {

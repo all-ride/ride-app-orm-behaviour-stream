@@ -28,4 +28,11 @@ interface StreamedActivityEntry {
      */
     public function isStreamedActivity();
 
+    /**
+     * Populates the custom fields on a stream activity
+     * @param \ride\application\orm\entry\StreamActivityEntry $streamActivity
+     * @return null
+     */
+    public function populateStreamActivity(StreamActivityEntry $streamActivity);
+
 }
