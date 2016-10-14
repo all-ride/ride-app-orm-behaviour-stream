@@ -3,6 +3,7 @@
 namespace ride\application\orm\model\behaviour\initializer;
 
 use ride\application\orm\model\behaviour\ActivityStreamBehaviour;
+
 use ride\library\generator\CodeClass;
 use ride\library\generator\CodeGenerator;
 use ride\library\orm\definition\field\BelongsToField;
